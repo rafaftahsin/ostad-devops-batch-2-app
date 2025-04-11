@@ -1,0 +1,10 @@
+# /etc/systemd/system/chat.service
+
+[Unit]
+Description=Chat Service
+
+[Service]
+ExecStart=/usr/bin/node /home/ubuntu/ostad-devops-batch-2-app/index.js
+
+[Install]
+WantedBy=multi-user.target
