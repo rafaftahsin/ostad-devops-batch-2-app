@@ -1,0 +1,15 @@
+services:
+  web:
+    build: .
+    ports:
+      - "3000:3000"
+    restart: on-failure:5 # unless-stopped # https://docs.docker.com/reference/compose-file/services/
+    deploy:
+      mode: replicated
+      replicas: 2
+
+### Ref: 
+### Network : https://docs.docker.com/reference/compose-file/networks/
+### Volume: https://docs.docker.com/reference/compose-file/volumes/
+### Config: https://docs.docker.com/reference/compose-file/configs/
+### secrets: https://docs.docker.com/reference/compose-file/secrets/
