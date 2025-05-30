@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{.Values.nameOverride}}-ingress
+  namespace: {{.Values.nameOverride}}
+  annotations:
+    cert-manager.io/issuer: "letsencrypt-prod"
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - ostad-app.rfft.nl
+      secretName: ostad-app-cert
+  rules:
+    - host: "ostad-app.rfft.nl"
+      http:
+        paths:
+          - pathType: Prefix
+            path: "/"
+            backend:
+              service:
+                name: {{.Values.nameOverride}}-service
+                port:
+                  number: {{.Values.service.port}}
