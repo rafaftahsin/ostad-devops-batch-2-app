@@ -7,45 +7,8 @@ image:
   tag: latest
 nameOverride: "ostad-app"
 fullnameOverride: "ostad-app"
-#
-#podAnnotations: { name: ostad-app }
-#podLabels: { app: ostad-app}
-#
 
 containerPort: 80
 service:
   type: ClusterIP
   port: 80
-#
-## This block is for setting up the ingress for more information can be found here: https://kubernetes.io/docs/concepts/services-networking/ingress/
-#ingress:
-#  enabled: true
-#  className: nginx
-#  annotations: { cert-manager.io/issuer: "letsencrypt-prod" }
-#  hosts:
-#    - host: ostad-app.rfft.nl
-#      paths:
-#        - path: /
-#          pathType: Prefix
-#  tls:
-#    - secretName: ostad-app-cert
-#      hosts:
-#        - ostad-app.rfft.nl
-#
-## This is to setup the liveness and readiness probes more information can be found here: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/
-#livenessProbe:
-#  httpGet:
-#    path: /
-#    port: http
-#readinessProbe:
-#  httpGet:
-#    path: /
-#    port: http
-#
-## This section is for setting up autoscaling more information can be found here: https://kubernetes.io/docs/concepts/workloads/autoscaling/
-#autoscaling:
-#  enabled: false
-#  minReplicas: 1
-#  maxReplicas: 20
-#  targetCPUUtilizationPercentage: 80
-#  # targetMemoryUtilizationPercentage: 80
