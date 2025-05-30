@@ -1,26 +1,26 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ostad-app
-  namespace: ostad-app
+  name: {{.Values.nameOverride}}
+  namespace: {{.Values.nameOverride}}
   labels:
-    app: ostad-app
+    app: {{.Values.nameOverride}}
 spec:
-  replicas: 1
+  replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: ostad-app
+      app: {{.Values.nameOverride}}
   template:
     metadata:
-      name: ostad-app
+      name: {{.Values.nameOverride}}
       labels:
-        app: ostad-app
+        app: {{.Values.nameOverride}}
     spec:
       containers:
-        - name: ostad-app
-          image: rafaftahsin/ostad-app:v2
+        - name: {{.Values.nameOverride}}
+          image: {{ .Values.image.repository }}:{{ .Values.image.tag}}
           imagePullPolicy: IfNotPresent
           ports:
-            - containerPort: 3000
+            - containerPort: {{.Values.containerPort}}
               protocol: TCP
       restartPolicy: Always

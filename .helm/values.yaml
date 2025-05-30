@@ -1,19 +1,21 @@
-#replicaCount: 1
-#image:
+replicaCount: 1
+image:
 #  repository: rafaftahsin/ostad-app
-#  pullPolicy: IfNotPresent
+  repository: nginx
+  pullPolicy: IfNotPresent
 #  tag: v2
-#
+  tag: latest
 nameOverride: "ostad-app"
 fullnameOverride: "ostad-app"
 #
 #podAnnotations: { name: ostad-app }
 #podLabels: { app: ostad-app}
 #
-#service:
-#  type: ClusterIP
-#  # This sets the ports more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/#field-spec-ports
-#  port: 80
+
+containerPort: 80
+service:
+  type: ClusterIP
+  port: 80
 #
 ## This block is for setting up the ingress for more information can be found here: https://kubernetes.io/docs/concepts/services-networking/ingress/
 #ingress:

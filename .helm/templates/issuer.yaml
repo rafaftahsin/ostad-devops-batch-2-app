@@ -2,7 +2,7 @@ apiVersion: cert-manager.io/v1
 kind: Issuer
 metadata:
   name: letsencrypt-prod
-  namespace: ostad-app
+  namespace: {{.Values.nameOverride}}
 spec:
   acme:
     # The ACME server URL
