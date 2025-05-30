@@ -50,9 +50,9 @@ metadata:
   name: ostad-app-ingress
   namespace: ostad-app
   annotations:
-    kubernetes.io/ingress.class: nginx
     cert-manager.io/issuer: "letsencrypt-prod"
 spec:
+  ingressClassName: nginx
   tls:
     - hosts:
       - ostad-app.rfft.nl
