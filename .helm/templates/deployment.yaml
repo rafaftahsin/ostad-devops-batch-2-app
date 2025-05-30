@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ostad-app
+  namespace: ostad-app
+  labels:
+    app: ostad-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ostad-app
+  template:
+    metadata:
+      name: ostad-app
+      labels:
+        app: ostad-app
+    spec:
+      containers:
+        - name: ostad-app
+          image: rafaftahsin/ostad-app:v2
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 3000
+              protocol: TCP
+      restartPolicy: Always
