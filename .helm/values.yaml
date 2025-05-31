@@ -1,14 +1,18 @@
 replicaCount: 1
 image:
-#  repository: rafaftahsin/ostad-app
-  repository: nginx
+  repository: rafaftahsin/ostad-app
+#  repository: nginx
   pullPolicy: IfNotPresent
-#  tag: v2
-  tag: latest
+  tag: v2
+#  tag: latest
 nameOverride: "ostad-app"
 fullnameOverride: "ostad-app"
 
-containerPort: 80
+containerPort: 3000
 service:
   type: ClusterIP
   port: 80
+
+secret:
+  username: admin
+  password: pass123
