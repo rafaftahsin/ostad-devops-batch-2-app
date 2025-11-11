@@ -5,4 +5,5 @@ RUN apt install -y npm
 COPY ./ /app
 WORKDIR /app
 RUN npm install
-ENTRYPOINT ["node", "index.js"]
+ENTRYPOINT ["node"]
+CMD ["index.js"]
